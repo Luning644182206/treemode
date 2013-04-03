@@ -1,0 +1,74 @@
+/* 布局样式*/
+div{
+font-size:11pt;
+}
+div.main{
+position:absolute;
+width:99%;
+height:94%;
+background-color:transparent;
+z-index:1;
+/*border:1px solid navy;/**/
+/*overflow:auto;/**/
+scrollbar-face-color:9999ff;   
+white-space:nowrap;
+margin:8px;
+}
+div.top{
+width:100%;
+height:76%;
+background-color:transparent;
+border:1px solid navy;/**/
+}
+/*--树状态区样式*/
+div.top_left{
+float:left;
+width:25%;
+height:98%;
+filter:progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorStr=#ffffff,endColorStr=#eaeaea);
+overflow:auto;
+display:inline;
+border:1px solid blue;
+margin:5px;
+margin-right:0px;
+scrollbar-face-color:9999ff;   
+
+}
+div.top_left ul{list-style-type:none;width:100%;display:block}
+div.top_left ul li{display:block;} 
+div.top_left ul li span{} 
+div.top_center{
+float:left;
+width:1%;
+display:inline;
+margin:1px;
+}
+div.top_right{
+float:left;
+width:70%;
+height:98%;
+background-color:transparent;
+display:inline;
+margin-left:1px;
+}
+div.top_right_top{
+width:100%;
+height:4%;
+background-color:transparent;
+border:1px solid #eaeaea;
+margin:2px;
+}
+div.top_right_middle{
+width:100%;
+height:92%;
+background-color:transparent;
+border:1px solid #eaeaea;
+margin:2px;
+}
+div.bottom{
+width:99%;
+height:16%;
+background-color:transparent;
+border:1px solid #eaeaea;
+margin:5px;
+}

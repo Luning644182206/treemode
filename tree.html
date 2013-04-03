@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!-- ie/chrome/firefox/safari/opera -->
+<html>
+	<head>
+		<title>树深度构建图</title>
+        <!--
+            省略构建树结构JSON,扁平的数组结构直接画树,效率更高
+        -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">  
+        <link type="text/css" rel="stylesheet" href="css/base.css" /> 
+        <link type="text/css" rel="stylesheet" href="css/layout.css" />  
+        <link type="text/css" rel="stylesheet" href="css/jsTree.css" />  
+	</head>
+	<body  >	
+		<div class="main">  
+			<div id="treePanel" class="top_left" style="width:200px;height:600px;">
+			 
+			</div> 
+		</div> 
+</body>  
+	</body>	 
+    <script type="text/javascript" src="js/underscore-1.3.3.js"></script> 
+    <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="js/jquery.treemode-2.0.js"></script> 
+    <script type="text/javascript">	 
+        var flat = [{
+                desc : null,
+                'org_unit_list_rank' : 99999,
+                ouid : "16ysu94iv7",
+                'ouid_name' : "RD",
+                pid : "d24mw0ayx3"
+            }, {
+                desc : null,
+                'org_unit_list_rank' : 99999,
+                ouid : "301e60nhn1",
+                'ouid_name' : "\u6E20\u905311",
+                pid : "vlctxw1mf2"
+            }, {
+                desc : null,
+                'org_unit_list_rank' : 99999,
+                ouid : "36cis4vp38",
+                'ouid_name' : "\u6E20\u9053\u6320\u6320\u7EC4",
+                pid : "bwtnv5jw56"
+            }, {
+                desc : "\u8FD9\u662F\u4E00\u4E2A\u4E09\u7EA7\u90E8\u95E8\uFF01",
+                'org_unit_list_rank' : 99999,
+                ouid : "56y4vnkrv2",
+                'ouid_name' : "\u6E20\u9053\u7EC4",
+                pid : "tw2binikl4"
+            }, {
+                desc : null,
+                'org_unit_list_rank' : 99999,
+                ouid : "7dk0jb2nx5",
+                'ouid_name' : "t1",
+                pid : "5pl2r2xy81"
+            }, {
+                desc : null,
+                'org_unit_list_rank' : 99999,
+                ouid : "7f72tsftp6",
+                'ouid_name' : "\u6E20\u9053\u6320\u63201",
+                pid : "36cis4vp38"
+            }, {
+                desc : "\u5403\u96F6\u98DF",
+                'org_unit_list_rank' : 99999,
+                ouid : "7vrdivjcc3",
+                'ouid_name' : "\u96F6\u98DF",
+                pid : "l65hkk2ty4"
+            }, {
+                desc : null,
+                'org_unit_list_rank' : 99999,
+                ouid : "bwtnv5jw56",
+                'ouid_name' : "\u6E20\u9053\u857E\u857E\u7EC4",
+                pid : "13bp0nz5s7"
+            }, {
+                desc : null,
+                'org_unit_list_rank' : 99999,
+                ouid : "p5ot789rb3",
+                'ouid_name' : "\u6280\u672F1\u7EC4",
+                pid : "dsk313r0g7"
+            }, {
+                desc : null,
+                'org_unit_list_rank' : 99999,
+                ouid : "vlctxw1mf2",
+                'ouid_name' : "\u6E20\u9053\u6320\u632011",
+                pid : "7f72tsftp6"
+            }, {
+                desc : null,
+                'org_unit_list_rank' : 99998,
+                ouid : "d24mw0ayx3",
+                'ouid_name' : "\u90AE\u4EF6\u4E2D\u5FC3",
+                pid : null
+            }, {
+                desc : null,
+                'org_unit_list_rank' : 99998,
+                ouid : "dsk313r0g7",
+                'ouid_name' : "\u6280\u672F\u7EC4",
+                pid : "d24mw0ayx3"
+            }, {
+                desc : null,
+                'org_unit_list_rank' : 99998,
+                ouid : "l65hkk2ty4",
+                'ouid_name' : "\u8BBE\u8BA1\u7EC4",
+                pid : "tw2binikl4"
+            }, {
+                desc : null,
+                'org_unit_list_rank' : 99997,
+                ouid : "5pl2r2xy81",
+                'ouid_name' : "test",
+                pid : null
+            }, {
+                desc : null,
+                'org_unit_list_rank' : 99997,
+                ouid : "lw90uqlv58",
+                'ouid_name' : "\u6E20\u9053\u652F\u6301\u7EC4",
+                pid : "tw2binikl4"
+            }, {
+                desc : null,
+                'org_unit_list_rank' : 99997,
+                ouid : "tw2binikl4",
+                'ouid_name' : "\u4EA7\u54C1\u7EC4",
+                pid : "d24mw0ayx3"
+            }, {
+                desc : null,
+                'org_unit_list_rank' : 99996,
+                ouid : "13bp0nz5s7",
+                'ouid_name' : "\u6E20\u9053\u90E8",
+                pid : "tw2binikl4"
+            }, {
+                desc : null,
+                'org_unit_list_rank' : 99996,
+                ouid : "b8wj4yehw2",
+                'ouid_name' : "sales2",
+                pid : "d24mw0ayx3"
+            }, {
+                desc : null,
+                'org_unit_list_rank' : 0,
+                ouid : "default",
+                'ouid_name' : "\u9ED8\u8BA4\u90E8\u95E8",
+                pid : null
+            }, {
+                desc : null,
+                'org_unit_list_rank' : 0,
+                ouid : "maillist",
+                'ouid_name' : "\u90AE\u4EF6\u5217\u8868",
+                pid : null
+            },{
+                desc : null,
+                'org_unit_list_rank' : 99999,
+                ouid : null,
+                'ouid_name' : "所有部门",
+                pid : -1
+            }
+        ]; 
+    </script>
+    <script>
+        var $tree = $('#treePanel'); 
+        var treeObj = $tree.treeMode({ 
+            flatData : flat,
+            idKey : 'ouid',
+            parentIdKey : 'pid',
+            labelKey : 'ouid_name',
+			rootPId : -1, //顶级节点的parentId
+            rootId : null,//顶级节点的ID
+            datas :[ 'ouid_name',"pid" ]      //业务需要的data属性,在li节点上
+        });  
+    </script>
+</html>

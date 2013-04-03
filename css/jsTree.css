@@ -1,0 +1,21 @@
+/*treemode style*/
+.icon_L0, .icon_L1, .icon_L2, .icon_L3, .icon_L4, .icon_M0, .icon_M1, .icon_M2, .icon_P0, .icon_P1, .icon_P2, .icon_empty, .icon_root{
+height: 20px; width: 20px; display:inline-block;}
+.icon_L0{background:url(img/L0.gif) repeat scroll 0 0 transparent;}
+.icon_L1{background:url(img/L1.gif) repeat scroll 0 0 transparent;}
+.icon_L2{background:url(img/L2.gif) repeat scroll 0 0 transparent;}
+.icon_L3{background:url(img/L3.gif) repeat scroll 0 0 transparent;}
+.icon_L4{background:url(img/L4.gif) repeat scroll 0 0 transparent;}
+.icon_M0{background:url(img/M0.gif) repeat scroll 0 0 transparent;}
+.icon_M1{background:url(img/M1.gif) repeat scroll 0 0 transparent;}
+.icon_M2{background:url(img/M2.gif) repeat scroll 0 0 transparent;}
+.icon_P0{background:url(img/P0.gif) repeat scroll 0 0 transparent;}
+.icon_P1{background:url(img/P1.gif) repeat scroll 0 0 transparent;}
+.icon_P2{background:url(img/P2.gif) repeat scroll 0 0 transparent;}
+.icon_empty{background:url(img/empty.gif) repeat scroll 0 0 transparent;}
+
+.tree_root {position:relative;}
+.tree_node{white-space: nowrap;position:relative;height:20px;}
+.tree_label{height: 20px;display:inline-block;position:relative;top:-4px;*top:0px; }
+ 
+ 
