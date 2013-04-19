@@ -11,34 +11,19 @@
  
 (function( $, win, undef ){
     $.fn.treeMode = function( options ){ 
-        var _oTree = this,
+        var _oTree = this;
             //default options
             options = _.extend({ 
                 initialize : function(){ 
                     //initialize status 
-                    if( _.isArray( this.flatData ) === false ){
-                        this.flatData = [];
-                    } 
-                    if( _.isString( this.idKey ) === false ){
-                        this.idKey = "id";
-                    }
-                    if( _.isString( this.parentIdKey ) === false ){
-                        this.parentIdKey = "parentId";
-                    }
-                    if( _.isString( this.labelKey ) === false ){
-                        this.parentIdKey = "label";
-                    }
-					if( _.isString( this.rootPId ) === false ){
-                        this.rootPId = -1;
-                    }
-                    if( _.isString( this.rootId ) === false ){
-                        this.rootId = null;
-                    } 
-                    if( _.isArray( this.datas ) === false ){
-                        this.datas = [];
-                    } 
-                    if( _.isObject( this.icons ) === false ){
-                        this.icons = {
+                    _.isArray( this.flatData ) || ( this.flatData = [] );
+                    _.isString( this.idKey )  || ( this.idKey = 'id' );
+                    _.isString( this.parentIdKey ) || ( this.parentIdKey = 'parentId' );
+                    _.isString( this.labelKey ) || ( this.parentIdKey = 'label' );
+					          _.isString( this.rootPId ) || ( this.rootPID = -1 );
+                    _.isString( this.rootId ) || ( this.rootId = null );
+                    _.isArray( this.datas ) || ( this.datas = [] );
+                    this.icons = {
                              L0        : 'L0',  //┏
                              L1        : 'L1',  //┣
                              L2        : 'L2',  //┗
@@ -48,22 +33,18 @@
                              PM1       : 'P1',  //＋┣
                              PM2       : 'P2',  //＋┗
                              PM3       : 'P3',  //＋━
-                             M0		   : 'M0',
-                             M1		   : 'M1',
-                             M2		   : 'M2',		 
-                             empty     : 'empty'       //空白图 
-                        }	
-                    } 
+                             M0 		   : 'M0',
+                             M1	  	   : 'M1',
+                             M2		     : 'M2',		
+                             empty     : 'empty' //空白图
+                     };	
                     //内部函数 -- 回头换成私有变量
                     this.treeData = [];
                     this.forEachNumber = 0; //计算树遍历的递归次数
-                    
                     /*
                      * 必须排序，画树需要的参数在排序中获得
-                     */ 
-                  
-					this.depthSortData();
-                    
+                     */
+                    this.depthSortData();
                 },
                 dictFlatData:function( data ){
                     var opts = this,dict = {};
@@ -153,13 +134,13 @@
 										   expandArr.push( sId );
 										}else{
 											return false;
-										}  
-									}); 
+										}
+									});
 								}
 								expandFlag ? $item.hide() : $item.show();
 								$parent.data( 'expand',expandFlag );
 								$el.removeClass().addClass( className.replace( cClass,rClass ) );
-							} 
+							}
 						}else{ 
 							return false;
 						}
@@ -223,7 +204,7 @@
 				$parent : $parent,
 				className: className,
 				cLevel : cLevel 
-			}
+			};
             if( className.indexOf('M') > -1 ){
 				_.extend( _params,{ 
 					cClass : 'M',
