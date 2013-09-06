@@ -59,7 +59,7 @@
             formatFlatData: function (data) {
                 var opts = this,
                     format = {};
-                //格式化扁平数据,pid作为健，值为二维数组对象
+                //格式化扁平数据,pid作为健，值为数组内的对象
                 _.each(data, function (item) {
                     var key = item[opts.parentIdKey];
                     if (format.hasOwnProperty(key) === false) {
@@ -172,9 +172,7 @@
                 var dataVal = data[dataKey];
                 datasHTMLArr.push('data-' + dataKey + '="' + dataVal + '"');
             });
-            datasHTMLArr.unshift(data_level);
-            datasHTMLArr.unshift(data_id);
-            datasHTMLArr.unshift(data_end);
+            datasHTMLArr.unshift(data_level, data_id, data_end);
             var linesHTML = [];
             _.each(lines, function (line, index) {
                 if (index === 0) {
