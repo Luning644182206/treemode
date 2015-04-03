@@ -48,7 +48,7 @@
                 var opts = this,
                     dict = {};
                 //字典化扁平数据结构 = 二维数组，数据库
-                //id,为键，pid为值
+                //id为键，pid为值   
                 _.each(data, function (item) {
                     var key = item[opts.idKey],
                         val = item[opts.parentIdKey];
@@ -59,7 +59,7 @@
             formatFlatData: function (data) {
                 var opts = this,
                     format = {};
-                //格式化扁平数据,pid作为健，值为数组内的对象
+                //格式化扁平数据,pid作为健，值为数组内的对象, 各对象pid满足条件的放入数组
                 _.each(data, function (item) {
                     var key = item[opts.parentIdKey];
                     if (format.hasOwnProperty(key) === false) {
